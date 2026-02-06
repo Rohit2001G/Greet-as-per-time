@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings as per the Time in js</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .main{
+            background-color: rgba(102,110,127);
+            min-height: 200px;
+            min-width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1{
+            color: white;
+            text-align: center;
+            
+        }
+        .container{
+            height: 100px;
+            width: 200px;
+        }
+        div {
+            display: inline-block;
+            font-size: x-large;
+
+        }
+        button{
+            height: 50px;
+            width: 110px;
+            margin-left: -5px;
+            margin-top: 10px;
+            font-size: large;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            box-shadow: 2px 2px 5px chocolate;
+            background-color: black;
+            color: white;
+            
+        }
+        #box{
+            margin: 10px 0 0 0px;
+            color: aqua;
+            font-weight: 600;
+        }
+        .time{
+            color: white;
+            font-weight: 600;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+    <h1 >Click here to get the Greeting messege</h1>
+    <div class="container">
+
+    <div class="time" id="hours">00:</div>
+    <div class="time" id="minuts">00:</div>
+    <div class="time" id="seconds">00</div><br>
+    <button onclick="greet()">Click me</button><br>
+    <div id="box"></div>
+    </div>
+    </div>
+
+    <script>
+
+        let box = document.getElementById('box');
+
+
+        function greet() {
+            let now = new Date();
+            let hours = now.getHours();
+            
+
+            if (hours < 12) {
+                box.innerText = "Good Morning Ji....!"
+                setTimeout(() => {
+                    box.innerText = ""
+                }, 5000)
+            }
+            else if (hours >= 12 && hours < 16) {
+                box.innerText = "Good Afternoon Ji....!"
+                setTimeout(() => {
+                    box.innerText = '';
+                }, 5000)
+            } else if (hours >= 16 && hours < 20) {
+                box.innerText = "Good Evening Ji....!"
+                setTimeout(() => {
+                    box.innerText = '';
+                }, 5000)
+            } else {
+                box.innerText = "Good Night Ji....!"
+                setTimeout(() => {
+                    box.innerText = '';
+                }, 5000)
+            }
+
+
+        }
+
+        let hours1 = document.getElementById('hours');
+        let minuts1 = document.getElementById('minuts');
+        let seconds1 = document.getElementById('seconds');
+        setInterval(() => {
+            let now = new Date();
+            let hours = now.getHours();
+            let minuts = now.getMinutes();
+            let seconds = now.getSeconds();
+            hours1.innerText = hours + ':';
+            minuts1.innerText = minuts + ':';
+            seconds1.innerText = seconds;
+        }, 1000)
+
+
+
+
+    </script>
+</body>
+
+</html>
